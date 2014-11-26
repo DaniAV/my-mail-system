@@ -12,7 +12,7 @@ public class MailItem
     private String to;
     //Almacena el contenido del mensaje
     private String message;
-    
+    //Almacena el contenido del asunto del mensaje
     private String subjet;
 
     /**

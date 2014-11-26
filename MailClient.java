@@ -17,7 +17,14 @@ public class MailClient
         this.server = server;
         this.user = user;
     }
-
+    /**
+     * Constructor que nos muestra por pantalla el numero de mails que tenemos
+     */
+    public int howManyMailItems()
+    {
+        return server.howManyMailItems(user);
+    }
+    
     /**
      *Metodo que obtiene del servidor el ultimo mail y lo devuelve 
      */
