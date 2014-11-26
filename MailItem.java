@@ -12,16 +12,19 @@ public class MailItem
     private String to;
     //Almacena el contenido del mensaje
     private String message;
+    
+    private String subjet;
 
     /**
      * Constructor para los objetos de la clase MailItem
      */
-    public MailItem(String from, String to, String message)
+    public MailItem(String from, String to, String message, String subjet)
     {
         
         this.from = from;
         this.to = to;
         this.message = message;
+        this.subjet = subjet;
     }
 
     /**
@@ -46,10 +49,19 @@ public class MailItem
         return message;
     }
     
+    /**
+     * Metodo que devuelve el valor de subjet
+     */
+    public String subjet()
+    {
+        return subjet;
+    }
+    
     public void print()
     {
         System.out.println("From " + from);
         System.out.println("To " + to);
         System.out.println("Message " + message);
+        System.out.println("Subjet " + subjet);
     }
 }
