@@ -1,54 +1,55 @@
 
 /**
- * Write a description of class MailIteme here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Esta clase representa un mensaje de email
  */
 public class MailItem
 {
     // instance variables - replace the example below with your own
-    private String From;
-    private String To;
-    private String Message;
+    
+    // Almacena que dirección envia el mensajeprivate String From;
+    private String from;
+    //Almacena para que dirección es el mensaje
+    private String to;
+    //Almacena el contenido del mensaje
+    private String message;
 
     /**
-     * Constructor for objects of class MailIteme
+     * Constructor para los objetos de la clase MailItem
      */
     public MailItem(String from, String to, String message)
     {
-        // initialise instance variables
-        From = from;
-        To = to;
-        Message = message;
+        
+        this.from = from;
+        this.to = to;
+        this.message = message;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Metodo que devuelve el valor de To.
      */
     public String getTo()
     {
-        // put your code here
-        return To;
+        return to;
     }
-    
+    /**
+     * Metodo que devuelve el valor de From
+     */
     public String getFrom()
     {
-        return From;
+        return from;
     }
-    
+    /**
+     * Metodo que devuelve el valor del Message
+     */
     public String getMessage()
     {
-        return Message;
+        return message;
     }
     
     public void print()
     {
-        System.out.println("From " + From);
-        System.out.println("To " + To);
-        System.out.println("Message " + Message);
+        System.out.println("From " + from);
+        System.out.println("To " + to);
+        System.out.println("Message " + message);
     }
 }

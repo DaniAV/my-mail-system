@@ -1,14 +1,12 @@
 
 /**
- * Write a description of class MailClient here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ Representa un cliente de correo electronico
  */
 public class MailClient
 {
-    // atributos de la clase MailClient
+    //Representa el servidor asociado al cliente
     private MailServer server;
+    //Representa la dirección de correo del usuario 
     private String user;
 
     /**
@@ -16,12 +14,12 @@ public class MailClient
      */
     public MailClient(MailServer server, String user)
     {
-        server = server;
-        user = user;
+        this.server = server;
+        this.user = user;
     }
 
     /**
-     *Metodo que devuelve el ultimo mail 
+     *Metodo que obtiene del servidor el ultimo mail y lo devuelve 
      */
     public MailItem getNextMailItem()
     {
@@ -29,8 +27,8 @@ public class MailClient
     }
     
     /**
-     * Metodo que devuelve el ultimo mail y lo muestra por pantalla, si no hay mail
-     * que mostrar, muestra un mensaje de "No hay mensajes"
+     * Metodo que devuelve el ultimo mail del servidor y lo muestra por pantalla, 
+     * si no hay mail que mostrar, muestra un mensaje de "No hay mensajes"
      */
     public void printNextMailItem()
     { 
