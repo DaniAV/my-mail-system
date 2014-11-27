@@ -38,7 +38,7 @@ public class MailClient
         String newMessage = email.getMessage();
         String respuesta = "No leeré tu mensaje, estoy de Vacaciones";
 
-        sendMailItem (newFrom, newSubject, newMessage + "-------- " + respuesta);
+        sendMailItem (newFrom, newSubject, newMessage + "\n" + respuesta);
     }
     
     /**
