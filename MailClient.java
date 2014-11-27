@@ -17,12 +17,28 @@ public class MailClient
         this.server = server;
         this.user = user;
     }
+    
     /**
      * Constructor que nos muestra por pantalla el numero de mails que tenemos
      */
     public int howManyMailItems()
     {
         return server.howManyMailItems(user);
+    }
+    
+    /**
+     * Metodo que que consigue que el sistema envie un mensaje automatico
+     * indicando que estamos de vacaciones
+     */
+    public void getNextMailItemAndAutorespond()
+    {
+        MailItem email = server.getNextMailItem(user);
+        String newFrom = email.getFrom();
+        String newSubject = "RE: " + email.getSubjet();
+        String newMessage = email.getMessage();
+        String respuesta = "No leeré tu mensaje, estoy de Vacaciones";
+
+        sendMailItem (newFrom, newSubject, newMessage + "-------- " + respuesta);
     }
     
     /**

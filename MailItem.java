@@ -52,10 +52,12 @@ public class MailItem
     /**
      * Metodo que devuelve el valor de subjet
      */
-    public String subjet()
+    public String getSubjet()
     {
         return subjet;
     }
+    
+   
     
     public void print()
     {
