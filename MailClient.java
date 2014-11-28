@@ -19,30 +19,39 @@ public class MailClient
     }
     
     /**
-     * Constructor que nos muestra por pantalla el numero de mails que tenemos
+     * Método que nos muestra por pantalla el numero de mails que tenemos
      */
-    public int howManyMailItems()
+    public void howManyMailItems()
     {
-        return server.howManyMailItems(user);
+        int numberOfMail = server.howManyMailItems(user);
+        System.out.println("Numero de mails en servidor" + numberOfMail);
+        
     }
     
     /**
-     * Metodo que que consigue que el sistema envie un mensaje automatico
+     * Método que que consigue que el sistema envie un mensaje automatico
      * indicando que estamos de vacaciones
      */
     public void getNextMailItemAndAutorespond()
     {
         MailItem email = server.getNextMailItem(user);
-        String newFrom = email.getFrom();
-        String newSubject = "RE: " + email.getSubjet();
-        String newMessage = email.getMessage();
-        String respuesta = "No leeré tu mensaje, estoy de Vacaciones";
-
-        sendMailItem (newFrom, newSubject, newMessage + "\n" + respuesta);
+        
+        if (email != null)
+        {
+            String newTo = email.getFrom();
+            String newSubject = "RE: " + email.getSubjet();
+            String newMessage = email.getMessage();
+            String autoRespond = "No leeré tu mensaje, estoy de Vacaciones";
+            sendMailItem (newTo, newSubject, newMessage + "\n" + autoRespond);
+        }
+        else 
+        {
+        
+        }
     }
     
     /**
-     *Metodo que obtiene del servidor el ultimo mail y lo devuelve 
+     *Método que obtiene del servidor el ultimo mail y lo devuelve 
      */
     public MailItem getNextMailItem()
     {

@@ -34,6 +34,7 @@ public class MailItem
     {
         return to;
     }
+    
     /**
      * Metodo que devuelve el valor de From
      */
