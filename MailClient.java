@@ -8,6 +8,8 @@ public class MailClient
     private MailServer server;
     //Representa la dirección de correo del usuario 
     private String user;
+    //Representa el lugar donde se almacenara el ultimo mail recibido
+    private MailItem email;
 
     /**
      * Constructor para los objetos de la clase MailClient
@@ -16,6 +18,7 @@ public class MailClient
     {
         this.server = server;
         this.user = user;
+        
     }
     
     /**
@@ -34,7 +37,7 @@ public class MailClient
      */
     public void getNextMailItemAndAutorespond()
     {
-        MailItem email = server.getNextMailItem(user);
+        email = server.getNextMailItem(user);
         
         if (email != null)
         {
@@ -55,6 +58,7 @@ public class MailClient
      */
     public MailItem getNextMailItem()
     {
+        email = server.getNextMailItem(user);
         return server.getNextMailItem(user);
     }
     
@@ -64,15 +68,34 @@ public class MailClient
      */
     public void printNextMailItem()
     { 
-        MailItem mail = server.getNextMailItem(user);
-        if(mail == null)
+        email = server.getNextMailItem(user);
+        if(email == null)
         {
             System.out.println("No hay mensajes");
         }
         else
         {
-            mail.print();
+            email.print();
         }
+    }
+    
+    /**
+     * Método que muestra por pantalla los datos del ultimo mail recibido, tantas
+     * veces como queramos
+     */
+    public void PrintLastMailItem()
+    {
+       if (email != null)
+       {
+        email.print();
+       }
+       else
+       {
+       System.out.println("No hay mensajes"); 
+       }
+       
+       
+       
     }
     
     /**
@@ -81,7 +104,7 @@ public class MailClient
      */
     public void sendMailItem(String To, String Message, String subjet)
     {
-        MailItem mail = new MailItem(user, To, Message, subjet);
-        server.post(mail);
+        email = new MailItem(user, To, Message, subjet);
+        server.post(email);
     }
 }
